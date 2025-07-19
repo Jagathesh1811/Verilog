@@ -1,0 +1,18 @@
+module tff_tb;
+  reg clk,rst,t;
+  wire q;
+  tff jk(t,clk,ret,q);
+  initial fork
+    clk=0;
+    rst=0;#5 rst=1;
+    t=1; #5 t=0;
+    repeat(5)
+      #20 clk = ~clk;
+      join
+      initial begin
+            $monitor ("T=%0t rst=%0b t=%0d q=%0d", $time, rst, t, q);
+        $dumpfile("jk.vcd");
+            $dumpvars;
+      end
+    endmodule
+
