@@ -1,0 +1,19 @@
+module mux_tb;
+  reg I0,I1,I2,I3;
+  wire Vo;
+  reg S0,S1;
+  mux_4_1 g1(I0,I1,I2,I3,S0,S1,Vo);
+  
+  initial begin
+    I0=1;I1=2;I2=3;I3=4;
+    S0=0; S1=0;
+    #10 S0=0; S1=1;
+    #10 S0=1; S1=0;
+    #10 S0=1; S1=1;
+ end
+  initial begin
+    $dumpfile ("mux.vcd");
+    $dumpvars (1);
+ end 
+    endmodule
+  
