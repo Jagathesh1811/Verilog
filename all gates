@@ -1,0 +1,12 @@
+module all_gates (output and_out,or_out,not_out,nor_out,nand_out,xor_out,xnor_out,buf_out,input a,b);
+  
+  and g1 (and_out,a,b);
+  or g2 (or_out,a,b);
+  not g3 (not_out,a);
+  nor g4 (nor_out,a,b);
+  nand g5 (nand_out,a,b);
+  xor g6 (xor_out,a,b);
+  xnor g7 (xnor_out,a,b);
+  buf g8 (buf_out,b);
+  
+endmodule
