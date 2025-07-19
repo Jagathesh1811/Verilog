@@ -1,0 +1,15 @@
+module dff_tb;
+  reg d,clk,rst;
+  wire q;
+  dff jk(.d(d),.clk(clk),.rst(rst),.q(q));
+  initial fork
+      clk=0;
+      #5 rst=1; #5 rst=0;
+    repeat(10)
+        #20 clk=~clk;
+      join 
+  initial begin
+    $dumpfile("df.vcd");
+    $dumpvars(0);
+  end
+ endmodule
