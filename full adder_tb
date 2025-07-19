@@ -1,0 +1,24 @@
+module full_adder_tb;
+  reg x,y,zin;
+  wire sum,carry;
+  full_adder g1(
+    x,y,zin,sum,carry
+  );
+  
+  
+  initial begin
+    x=0; y=0; zin=0;
+    #10; x=0; y=0; zin=1;
+    #10; x=0; y=1; zin=0;
+    #10; x=0; y=1; zin=1;
+    #10; x=1; y=0; zin=0;
+    #10; x=1; y=0; zin=1;
+    #10; x=1; y=1; zin=0;
+    #10; x=1; y=1; zin=1;
+  end
+  initial begin
+    $monitor("t=%t,x=%0b,y=%0b,zin=%ob,sum=%ob,carry=%0b",$time,x,y,zin,sum,carry);
+    $dumpfile("full.vcd");
+    $dumpvars(1);
+              end
+              endmodule
