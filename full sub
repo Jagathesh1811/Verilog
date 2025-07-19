@@ -1,0 +1,5 @@
+module mux_4_1(input I0,I1,I2,I3,S0,S1,output Vo);
+ 
+  assign Vo  = S1?(S0?I3:I2):(S0?I1:I0);
+  
+     endmodule
