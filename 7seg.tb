@@ -1,0 +1,17 @@
+module dis_7_tb;
+  reg [3:0] bcd,clk;
+  wire [6:0] seg;
+  dis_7 g1(.bcd(bcd),.seg(seg));
+
+  initial begin
+      clk=0;
+    forever #10clk=~clk;
+    $display ("bcd/seg(a,b,c,d,e,f,g)");
+    for (bcd=0;bcd<10;bcd=bcd+1);
+    #100 $finish;
+  end
+  initial begin
+    $dumpfile("dis.vcd");
+    $dumpvars(0);
+  end
+endmodule
